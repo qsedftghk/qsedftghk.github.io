@@ -1,75 +1,97 @@
-	<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="Content-Language" content="ru">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Cache-Control" content="no-cache">
-		<meta http-equiv="Expires" content="-1">
-		<meta name="description" content="C Новым 2019 годом!">
-		<title>C Новым 2019 годом!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Language" content="ru">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	<meta name="description" content="C Новым 2019 годом!">
+	<title>C Новым 2019 годом!</title>
 
-		<style>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-@-webkit-keyframes fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
-@-moz-keyframes    fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
-@-o-keyframes      fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
-@keyframes         fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
- 
-body {
-  -webkit-animation: fade-in 4s linear; /* Safari 4+ */
-  -moz-animation: fade-in 4s linear; /* Fx 5+ */
-  -o-animation: fade-in 4s linear; /* Opera 12+ */
-  animation: fade-in 4s linear; /* IE 10+, Fx 29+ */
-}
+	<style>
+		.is_overlay {display: block; width: 100%; height: 100%;}
+		
+		body {background-color: black;}
 
+		#trailer {
+			position: fixed;
+			top: 0; right: 0; bottom: 0; left: 0;
+			overflow: hidden;
+		}
+		#trailer > video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 
-			.is_overlay{ display: block; width: 100%; height: 100%; }
-			
-			body {
-				background-color: black;
-			}
-
-			#trailer {
-				position: fixed;
-				top: 0; right: 0; bottom: 0; left: 0;
-				overflow: hidden;
-			}
+		/* 1. No object-fit support: */
+		@media (min-aspect-ratio: 16/9) {
+			#trailer > video { height: 300%; top: -100%; }
+		}
+		@media (max-aspect-ratio: 16/9) {
+			#trailer > video { width: 300%; left: -100%; }
+		}
+		/* 2. If supporting object-fit, overriding (1): */
+		@supports (object-fit: cover) {
 			#trailer > video {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+				top: 0px; left: 0;
+				width: 100%; height: 100%;
+				object-fit: cover;
 			}
+		}
+		/* фон прелоадера */
+		.loaderArea {
+		  background: black;
+		  overflow: hidden;
+		  position: fixed;
+		  left: 0;
+		  top: 0;
+		  right:0;
+		  bottom:0;
+		  z-index: 100000;
+		}
+	</style>
 
-			/* 1. No object-fit support: */
-			@media (min-aspect-ratio: 16/9) {
-				#trailer > video { height: 300%; top: -100%; }
-			}
-			@media (max-aspect-ratio: 16/9) {
-				#trailer > video { width: 300%; left: -100%; }
-			}
-			/* 2. If supporting object-fit, overriding (1): */
-			@supports (object-fit: cover) {
-				#trailer > video {
-					top: 0px; left: 0;
-					width: 100%; height: 100%;
-					object-fit: cover;
-				}
-			}
-
-		</style>
-
-
+	<!-- таблица стилей прелоадера -->
+	<link rel="stylesheet" href="css/style.css">
+	<script src="jquery-3.3.1.min.js"></script>
+	<!-- скрываем прелоадер и фон -->
+	<script>
+	  $(window).on('load', function () {
+		$preloader = $('.loaderArea'),
+		$loader = $preloader.find('.loader');
+		$loader.fadeOut();
+		$preloader.delay(350).fadeOut(3000);
+	  });
+	</script>
 	</head>
 
-	<body>
-		<div id="trailer" class="is_overlay">
-			<video id="video" width="100%" height="auto"  autoplay controls loop muted>
-				<source src="1920x1080.mp4">
-				<source src="1920x1080.webm" type="video/webm">
-			</video>
+<body>
+	<div class="loaderArea">
+	   <div class="loader">
+			<div id="load">
+			  <div>.</div>
+			  <div>.</div>
+			  <div>.</div>
+			  <div>T</div>
+			  <div>I</div>
+			  <div>A</div>
+			  <div>W</div>
+			</div>
 		</div>
-	</body>
+	</div>
+
+	<div id="trailer" class="is_overlay">
+		<video id="video" width="100%" height="auto"  autoplay controls loop muted>
+			<source src="1920x1080.mp4">
+			<source src="1920x1080.webm" type="video/webm">
+		</video>
+	</div>
+</body>
 </html>
