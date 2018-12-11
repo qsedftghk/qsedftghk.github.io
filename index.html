@@ -1,97 +1,152 @@
-<!DOCTYPE HTML>
-<html>
+﻿<!DOCTYPE html>
+<html lang="ru">
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="Content-Language" content="ru">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="-1">
-	<meta name="description" content="C Новым 2019 годом!">
-	<title>C Новым 2019 годом!</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<!-- эмулируем режим IE9, чтобы работали условные комментарии -->
+		<!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Портфолио</title>
+		<meta name="description" content="Портфолио" />
+		<meta name="keywords" content="Портфолио, портфолио, дизайн, флеш, portfolio, design, flash" />
+		<meta name="author" content="Сделано на основе шаблона Codrops" />
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<script src="js/modernizr.custom.js"></script>
 
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- скрипт увеличения картинок------------------------ -->
+<script type="text/javascript" src="highslide/highslide.js"></script>
+<link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
+<script type="text/javascript">
+	hs.graphicsDir = 'highslide/graphics/';
+	hs.showCredits = false;
+	hs.allowMultipleInstances = false;
+	hs.outlineType = 'rounded-white';
+	hs.allowSizeReduction = false;
+	hs.dimmingOpacity = 0.75;
+	hs.skin.contentWrapper =
+	'<div align="right" class="highslide-header" style="padding-bottom:0 !important;">'+
+	'<a style="outline: none;" align="right" href="#" title="{hs.lang.closeTitle}" '+
+	'onclick="return hs.close(this)"></a>'+
+	'</div>'+
+	'<div class="highslide-body" style="overflow: hidden;"></div>';
+<!-- 	hs.outlineType = null;	 -->
+	hs.align = 'center';
+    hs.outlineWhileAnimating = true;
+	hs.preserveContent = false;
+	hs.restoreCursor = null;
+<!-- hs.objectLoadTime = 'after'; -->
+</script>	
+<!-- скрипт увеличения картинок------------------------ -->		
 
-	<style>
-		.is_overlay {display: block; width: 100%; height: 100%;}
-		
-		body {background-color: black;}
 
-		#trailer {
-			position: fixed;
-			top: 0; right: 0; bottom: 0; left: 0;
-			overflow: hidden;
-		}
-		#trailer > video {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
 
-		/* 1. No object-fit support: */
-		@media (min-aspect-ratio: 16/9) {
-			#trailer > video { height: 300%; top: -100%; }
-		}
-		@media (max-aspect-ratio: 16/9) {
-			#trailer > video { width: 300%; left: -100%; }
-		}
-		/* 2. If supporting object-fit, overriding (1): */
-		@supports (object-fit: cover) {
-			#trailer > video {
-				top: 0px; left: 0;
-				width: 100%; height: 100%;
-				object-fit: cover;
-			}
-		}
-		/* фон прелоадера */
-		.loaderArea {
-		  background: black;
-		  overflow: hidden;
-		  position: fixed;
-		  left: 0;
-		  top: 0;
-		  right:0;
-		  bottom:0;
-		  z-index: 100000;
-		}
-	</style>
-
-	<!-- таблица стилей прелоадера -->
-	<link rel="stylesheet" href="css/style.css">
-	<script src="jquery-3.3.1.min.js"></script>
-	<!-- скрываем прелоадер и фон -->
-	<script>
-	  $(window).on('load', function () {
-		$preloader = $('.loaderArea'),
-		$loader = $preloader.find('.loader');
-		$loader.fadeOut();
-		$preloader.delay(350).fadeOut(3000);
-	  });
-	</script>
 	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+<!-- 			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/ButtonComponentMorph/"><span>Previous Demo</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19069"><span>Back to the Codrops Article</span></a></span>
+			</div> -->
+			<header class="codrops-header">
+				<h1>Портфолио
+<!-- <span>Recreating <a href="http://design.samsung.com/">Samsung's</a> grid loading effect</span> -->
+</h1>	
+			</header>
+			<section class="grid-wrap">
+				<ul class="grid swipe-down" id="grid">
+					<li class="title-box" style="margin-left: 7px; margin-right: 7px; width: 240px;">
+						<h2 style="margin-left: 0px;   margin-right: 0px;">Связаться со мной:<a href="mailto:iva-lsd@yandex.ru"><i class="fa fa-envelope-o" aria-hidden="true" ></i> Войтов Сергей</a></h2>
+						<img src="img/lsdpng.png" alt="Аватар">&nbsp;</img>
+					</li>
 
-<body>
-	<div class="loaderArea">
-	   <div class="loader">
-			<div id="load">
-			  <div>.</div>
-			  <div>.</div>
-			  <div>.</div>
-			  <div>T</div>
-			  <div>I</div>
-			  <div>A</div>
-			  <div>W</div>
-			</div>
-		</div>
-	</div>
+					<li><a href="Portfolio/01.jpg" onclick="return hs.expand(this)"><img height="600" src="Portfolio/01.jpg" alt="dummy"><h3>A fantastic title</h3></a></li>
 
-	<div id="trailer" class="is_overlay">
-		<video id="video" width="100%" height="auto"  autoplay controls loop muted>
-			<source src="1920x1080.mp4">
-			<source src="1920x1080.webm" type="video/webm">
-		</video>
-	</div>
-</body>
+					<li><a href="Portfolio/HTML5/otkrytka_25_flip_html5.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 700, height: 700, objectWidth: 700, objectHeight: 700})"><img src="Portfolio/HTML5/otkrytka_25_flip_html5.jpg" alt="Открытка на Новый 2018 год"></img>
+					<h3>Открытка на Новый 2018 год<br>HTML5</h3></a></li>
+
+					<li><a href="Portfolio/FLASH/Afimall/Afimall.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 486, height: 400, objectWidth: 486, objectHeight: 400})"><img src="Portfolio/FLASH/Afimall/Afimall.jpg" alt="Flash-баннеры для Afimall"></img>
+					<h3>Flash-баннеры Afimall</h3></a></li>
+
+					<li><a href="Portfolio/FLASH/NY.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 550, height: 400, objectWidth: 550, objectHeight: 400})"><img src="Portfolio/FLASH/NY.jpg" alt="Открытка на Новый 2016 год"></img>
+					<h3>Открытка на Новый 2016 год<br>Flash. Осторожно, звук!</h3></a></li>
+
+					<li><a href="Portfolio/FLASH/DART/NY_2012.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 800, height: 569, objectWidth: 800, objectHeight: 569})"><img src="Portfolio/FLASH/DART/NY_2012.jpg" alt="Открытка на Новый 2012 год"></img>
+					<h3>Открытка на Новый 2012 год<br>Flash</h3></a></li>
+
+					<li><a href="Portfolio/FLASH/04.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 240, height: 400, objectWidth: 240, objectHeight: 400})"><img src="Portfolio/FLASH/04.jpg" alt="Новогодняя открытка"></img>
+					<h3>Снеговички</h3></a></li>
+
+					<li><a href="Portfolio/FLASH/ACG/Amiga/05.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 732, height: 400, objectWidth: 732, objectHeight: 400})"><img src="Portfolio/FLASH/ACG/Amiga/05.jpg" alt="Flash-баннеры для Амига"></img>
+					<h3>Flash-баннеры Амига</h3></a></li>
+
+					<li><a href="Portfolio/FLASH/ACG/Galerey/240x400_fashion_week.html" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 240, height: 400, objectWidth: 240, objectHeight: 400})"><img src="Portfolio/FLASH/ACG/Galerey/240x400_fashion_week.jpg" alt="Flash-баннер для Галереи"></img>
+					<h3>Flash-баннер Галереи</h3></a></li>
+
+					<li><a href="Portfolio/02.jpg" onclick="return hs.expand(this)"><img src="Portfolio/02.jpg" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="Portfolio/03.jpg" onclick="return hs.expand(this)"><img src="Portfolio/03.jpg" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="Portfolio/dummy1.png" onclick="return hs.expand(this)"><img src="Portfolio/dummy1.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="Portfolio/dummy1.png" onclick="return hs.expand(this)"><img src="Portfolio/dummy1.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="Portfolio/dummy1.png" onclick="return hs.expand(this)"><img src="Portfolio/dummy1.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+
+					<li><a href="#"><img src="Portfolio/dummy1.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="Portfolio/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+				</ul>
+			</section>
+			<section class="related">
+				<img src="img/lsdpng.png" alt="Аватар">&nbsp;</img>
+				<p>Отключите блокировщик рекламы или добавьте страницу в исключения, если не видны какие-то отдельные работы.<br>Скорее всего, блокировщик чуть-чуть перестарался ;)</p>
+
+<!-- 				<a href="http://tympanus.net/Development/ThumbnailGridAnimations/">
+					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/10/ThumbnailGridAnimations1-300x162.jpg" />
+					<h3>Animations for Thumbnail Grids</h3>
+				</a>
+				<a href="http://tympanus.net/Development/GridLoadingEffects/">
+					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/07/GridLoadingEffects-300x162.png" />
+					<h3>Grid Loading Effects</h3>
+				</a> -->
+			</section>
+		</div><!-- /container -->
+		<script src="js/masonry.pkgd.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/colorfinder-1.1.js"></script>
+		<script src="js/gridScrollFx.js"></script>
+		<script>
+			new GridScrollFx( document.getElementById( 'grid' ), {
+				viewportFactor : 0.4
+			} );
+		</script>
+	</body>
 </html>
